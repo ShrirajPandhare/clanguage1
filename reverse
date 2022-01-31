@@ -1,0 +1,32 @@
+#include<stdio.h>
+int main()
+{
+	FILE *fp;
+	char ch;
+	int ft,i=0;
+	fp=fopen("mycaptain.txt","r");
+	if(fp==NULL)
+	
+	{
+		printf("Error");
+		return 0;
+	}
+	
+	fseek(fp,0,SEEK_END);
+	ft=ftell(fp);
+	i=0;
+	
+	while (i<ft)
+	{
+		i++;
+		fseek(fp,-i,SEEK_END);
+		printf("%c",fgetc(fp));
+		ch=fgetc(fp);
+		printf("%c",ch);
+	}
+	
+	fclose(fp);
+	return 0;
+	
+ } 
+ 
